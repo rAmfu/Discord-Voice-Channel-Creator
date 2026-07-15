@@ -1,6 +1,11 @@
-# 🎤 Bot do Tymczasowych Kanałów Głosowych
+# 🎤 Discord Voice Channel Creator
 
 Bot Discord, który automatycznie tworzy i zarządza tymczasowymi kanałami głosowymi z pełnym panelem zarządzania.
+
+[![Status](https://img.shields.io/badge/status-aktywny-success)](https://github.com/rAmfu/Discord-Voice-Channel-Creator)
+[![Python](https://img.shields.io/badge/python-3.8+-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Discord.py](https://img.shields.io/badge/discord.py-2.0+-blue)](https://github.com/Rapptz/discord.py)
 
 ---
 
@@ -51,5 +56,5 @@ Po utworzeniu kanału, na kanale pojawia się interaktywny panel z embedem. Wła
 
 1. **Sklonuj repozytorium:**
 ```bash
-git clone https://github.com/twoja-nazwa/temp-voice-bot.git
-cd temp-voice-bot
+git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
+cd Discord-Voice-Channel-Creator
