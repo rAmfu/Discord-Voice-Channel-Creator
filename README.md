@@ -9,6 +9,23 @@ Bot Discord, który automatycznie tworzy i zarządza tymczasowymi kanałami gło
 
 ---
 
+## 📋 Spis treści
+- [✨ Funkcje](#-funkcje)
+- [🚀 Szybki start](#-szybki-start)
+- [📦 Instalacja na Debianie 12](#-instalacja-na-debianie-12)
+- [🔧 Uruchamianie w tle](#-uruchamianie-w-tle)
+- [🐳 Docker](#-docker)
+- [📁 Struktura plików](#-struktura-plików)
+- [🎯 Jak to działa](#-jak-to-działa)
+- [🔐 Bezpieczeństwo](#-bezpieczeństwo)
+- [📝 Konfiguracja](#-konfiguracja)
+- [🛠️ Szczegóły techniczne](#️-szczegóły-techniczne)
+- [🤝 Współpraca](#-współpraca)
+- [📄 Licencja](#-licencja)
+- [💬 Wsparcie](#-wsparcie)
+
+---
+
 ## ✨ Funkcje
 
 ### 🚀 Automatyczne tworzenie kanałów
