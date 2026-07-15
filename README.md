@@ -78,12 +78,18 @@ git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
 cd Discord-Voice-Channel-Creator
 ```
 
-2. **Zainstaluj zależności:**
+2. **Utwórz i aktywuj środowisko wirtualne:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. **Zainstaluj zależności:**
 ```bash
 pip install discord.py
 ```
 
-3. **Skonfiguruj bota:**
+4. **Skonfiguruj bota:**
    - Otwórz plik `bot.py`
    - Ustaw swoje zmienne:
    ```python
@@ -92,10 +98,12 @@ pip install discord.py
    TRIGGER_CHANNEL_ID = 123456789012345678  # ID kanału trigger
    ```
 
-4. **Uruchom bota:**
+5. **Uruchom bota:**
 ```bash
 python bot.py
 ```
+
+> **⚠️ WAŻNE:** Zawsze uruchamiaj bota w środowisku wirtualnym! Jeśli widzisz `(venv)` przed nazwą użytkownika w terminalu, oznacza to, że środowisko jest aktywne.
 
 ### Wymagane uprawnienia bota
 - `Zarządzanie kanałami` - do tworzenia, edycji i usuwania kanałów
@@ -125,21 +133,27 @@ sudo apt upgrade -y
 
 ### Krok 2: Instalacja podstawowych narzędzi
 ```bash
-sudo apt install -y python3 python3-pip git screen python3-venv
+sudo apt install -y python3 python3-pip git python3-venv
 ```
 
-### Krok 3: Instalacja discord.py
-```bash
-pip3 install discord.py
-```
-
-### Krok 4: Pobranie bota
+### Krok 3: Pobranie bota
 ```bash
 git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
 cd Discord-Voice-Channel-Creator
 ```
 
-### Krok 5: Konfiguracja
+### Krok 4: Utworzenie środowiska wirtualnego
+```bash
+python3 -m venv venv
+```
+
+### Krok 5: Aktywacja środowiska i instalacja zależności
+```bash
+source venv/bin/activate
+pip install discord.py
+```
+
+### Krok 6: Konfiguracja
 ```bash
 nano bot.py
 ```
@@ -150,25 +164,33 @@ GUILD_ID = 123456789012345678
 TRIGGER_CHANNEL_ID = 123456789012345678
 ```
 
-### Krok 6: Uruchomienie
+### Krok 7: Uruchomienie
 ```bash
-python3 bot.py
-```
-
-### Instalacja z środowiskiem wirtualnym (zalecana)
-```bash
-# Utworzenie środowiska wirtualnego
-python3 -m venv venv
-
-# Aktywacja środowiska
-source venv/bin/activate
-
-# Instalacja discord.py w środowisku
-pip install discord.py
-
-# Uruchomienie
 python bot.py
 ```
+
+### Ważne: Jak uruchamiać bota zawsze w środowisku wirtualnym?
+
+**Metoda 1: Jedna linia**
+```bash
+source venv/bin/activate && python bot.py
+```
+
+**Metoda 2: Dwie linie**
+```bash
+source venv/bin/activate
+python bot.py
+```
+
+**Metoda 3: Bezpośrednie użycie Pythona z venv**
+```bash
+./venv/bin/python bot.py
+```
+
+> **📌 Wskazówka:** Gdy środowisko jest aktywne, zobaczysz `(venv)` przed nazwą użytkownika w terminalu:
+> ```bash
+> (venv) user@server:~$
+> ```
 
 ---
 
@@ -179,9 +201,9 @@ python bot.py
 # Instalacja screen (jeśli nie masz)
 sudo apt install -y screen
 
-# Uruchomienie bota w sesji screen
+# Uruchomienie bota w sesji screen z środowiskiem wirtualnym
 screen -S voicebot
-python3 bot.py
+source venv/bin/activate && python bot.py
 
 # Wyjście z sesji (bot dalej działa)
 Ctrl+A, następnie D
@@ -209,7 +231,7 @@ After=network.target
 Type=simple
 User=bot-kick
 WorkingDirectory=/home/bot-kick/Discord-Voice-Channel-Creator
-ExecStart=/usr/bin/python3 /home/bot-kick/Discord-Voice-Channel-Creator/bot.py
+ExecStart=/home/bot-kick/Discord-Voice-Channel-Creator/venv/bin/python /home/bot-kick/Discord-Voice-Channel-Creator/bot.py
 Restart=always
 RestartSec=10
 
@@ -237,13 +259,35 @@ sudo apt install -y tmux
 
 # Uruchomienie
 tmux new -s voicebot
-python3 bot.py
+source venv/bin/activate && python bot.py
 
 # Wyjście
 Ctrl+B, następnie D
 
 # Powrót
 tmux attach -t voicebot
+```
+
+### Metoda 4: Skrypt startowy
+```bash
+# Utwórz plik start.sh
+nano start.sh
+```
+
+Wpisz:
+```bash
+#!/bin/bash
+cd /home/bot-kick/Discord-Voice-Channel-Creator
+source venv/bin/activate
+python bot.py
+```
+
+```bash
+# Dodaj uprawnienia
+chmod +x start.sh
+
+# Uruchom
+./start.sh
 ```
 
 ---
@@ -325,9 +369,11 @@ Discord-Voice-Channel-Creator/
 ├── channels.json       # Dane właścicieli kanałów (tworzony automatycznie)
 ├── LICENSE            # Licencja MIT
 ├── README.md          # Ten plik
+├── venv/              # Środowisko wirtualne (tworzone automatycznie)
 ├── Dockerfile         # Dla Dockera (opcjonalny)
 ├── docker-compose.yml # Dla Docker Compose (opcjonalny)
-└── requirements.txt   # Zależności (opcjonalny)
+├── requirements.txt   # Zależności (opcjonalny)
+└── start.sh           # Skrypt startowy (opcjonalny)
 ```
 
 ---
@@ -383,25 +429,21 @@ TRIGGER_CHANNEL_ID = 123456789012345678
 
 ### Problem: `ModuleNotFoundError: No module named 'discord'`
 ```bash
-pip3 install discord.py
-# lub jeśli używasz venv:
+# Sprawdź czy środowisko jest aktywne
 source venv/bin/activate
+
+# Zainstaluj discord.py
 pip install discord.py
-```
 
-### Problem: Brak uprawnień
-```bash
-# Dodaj uprawnienia do pliku
-chmod +x bot.py
-
-# Uruchom jako root (jeśli konieczne)
-sudo python3 bot.py
+# Sprawdź instalację
+pip list | grep discord
 ```
 
 ### Problem: Bot nie łączy się z Discord
 - Sprawdź czy token jest poprawny
 - Sprawdź czy intenty są włączone w panelu dewelopera
 - Sprawdź połączenie internetowe
+- Sprawdź czy środowisko wirtualne jest aktywne
 
 ### Problem: Bot nie tworzy kanałów
 - Sprawdź czy bot ma uprawnienia do zarządzania kanałami
@@ -411,6 +453,19 @@ sudo python3 bot.py
 ### Problem: Błąd 404 podczas usuwania kanału
 - Bot najpierw wysyła odpowiedź, potem usuwa kanał
 - Jeśli błąd występuje, sprawdź czy kanał został już usunięty
+
+### Problem: Środowisko wirtualne nie działa
+```bash
+# Sprawdź czy venv jest zainstalowane
+python3 -m venv --help
+
+# Jeśli nie, zainstaluj
+sudo apt install python3-venv
+
+# Utwórz nowe środowisko
+rm -rf venv
+python3 -m venv venv
+```
 
 ---
 
