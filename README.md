@@ -1,4 +1,3 @@
-markdown
 # 🎤 Discord Voice Channel Creator
 
 Bot Discord, który automatycznie tworzy i zarządza tymczasowymi kanałami głosowymi z pełnym panelem zarządzania.
@@ -77,79 +76,87 @@ Po utworzeniu kanału, na kanale pojawia się interaktywny panel z embedem. Wła
 ```bash
 git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
 cd Discord-Voice-Channel-Creator
-Zainstaluj zależności:
+```
 
-bash
+2. **Zainstaluj zależności:**
+```bash
 pip install discord.py
-Skonfiguruj bota:
+```
 
-Otwórz plik bot.py
+3. **Skonfiguruj bota:**
+   - Otwórz plik `bot.py`
+   - Ustaw swoje zmienne:
+   ```python
+   TOKEN = "twój_token_bota"
+   GUILD_ID = 123456789012345678  # ID twojego serwera
+   TRIGGER_CHANNEL_ID = 123456789012345678  # ID kanału trigger
+   ```
 
-Ustaw swoje zmienne:
-
-python
-TOKEN = "twój_token_bota"
-GUILD_ID = 123456789012345678  # ID twojego serwera
-TRIGGER_CHANNEL_ID = 123456789012345678  # ID kanału trigger
-Uruchom bota:
-
-bash
+4. **Uruchom bota:**
+```bash
 python bot.py
-Wymagane uprawnienia bota
-Zarządzanie kanałami - do tworzenia, edycji i usuwania kanałów
+```
 
-Łączenie - do dołączania do kanałów głosowych
+### Wymagane uprawnienia bota
+- `Zarządzanie kanałami` - do tworzenia, edycji i usuwania kanałów
+- `Łączenie` - do dołączania do kanałów głosowych
+- `Przenoszenie członków` - do przenoszenia użytkowników między kanałami
+- `Zarządzanie uprawnieniami` - do ustawiania uprawnień kanałów
+- `Wyświetlanie kanałów` - do widzenia kanałów
+- `Wysyłanie wiadomości` - do wysyłania panelu zarządzania
+- `Wstawianie linków` - dla wyświetlania embedów
+- `Aktywność głosowa` - do monitorowania stanu głosowego
 
-Przenoszenie członków - do przenoszenia użytkowników między kanałami
+### Wymagane intenty
+- `guilds` - informacje o serwerze
+- `members` - szczegóły członków
+- `voice_states` - śledzenie aktywności głosowej
+- `message_content` - obsługa wiadomości
 
-Zarządzanie uprawnieniami - do ustawiania uprawnień kanałów
+---
 
-Wyświetlanie kanałów - do widzenia kanałów
+## 📦 Instalacja na Debianie 12
 
-Wysyłanie wiadomości - do wysyłania panelu zarządzania
-
-Wstawianie linków - dla wyświetlania embedów
-
-Aktywność głosowa - do monitorowania stanu głosowego
-
-Wymagane intenty
-guilds - informacje o serwerze
-
-members - szczegóły członków
-
-voice_states - śledzenie aktywności głosowej
-
-message_content - obsługa wiadomości
-
-📦 Instalacja na Debianie 12
-Krok 1: Aktualizacja systemu
-bash
+### Krok 1: Aktualizacja systemu
+```bash
 sudo apt update
 sudo apt upgrade -y
-Krok 2: Instalacja podstawowych narzędzi
-bash
+```
+
+### Krok 2: Instalacja podstawowych narzędzi
+```bash
 sudo apt install -y python3 python3-pip git screen python3-venv
-Krok 3: Instalacja discord.py
-bash
+```
+
+### Krok 3: Instalacja discord.py
+```bash
 pip3 install discord.py
-Krok 4: Pobranie bota
-bash
+```
+
+### Krok 4: Pobranie bota
+```bash
 git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
 cd Discord-Voice-Channel-Creator
-Krok 5: Konfiguracja
-bash
-nano bot.py
-Wpisz swoje dane:
+```
 
-python
+### Krok 5: Konfiguracja
+```bash
+nano bot.py
+```
+Wpisz swoje dane:
+```python
 TOKEN = "twój_token_bota"
 GUILD_ID = 123456789012345678
 TRIGGER_CHANNEL_ID = 123456789012345678
-Krok 6: Uruchomienie
-bash
+```
+
+### Krok 6: Uruchomienie
+```bash
 python3 bot.py
-Instalacja z środowiskiem wirtualnym (zalecana)
-bash
+```
+
+### Instalacja z środowiskiem wirtualnym (zalecana)
+```bash
 # Utworzenie środowiska wirtualnego
 python3 -m venv venv
 
@@ -161,9 +168,14 @@ pip install discord.py
 
 # Uruchomienie
 python bot.py
-🔧 Uruchamianie w tle
-Metoda 1: Screen (zalecana)
-bash
+```
+
+---
+
+## 🔧 Uruchamianie w tle
+
+### Metoda 1: Screen (zalecana)
+```bash
 # Instalacja screen (jeśli nie masz)
 sudo apt install -y screen
 
@@ -179,13 +191,16 @@ screen -r voicebot
 
 # Zatrzymanie bota
 Ctrl+C
-Metoda 2: Systemd (usługa)
-bash
+```
+
+### Metoda 2: Systemd (usługa)
+```bash
 # Utworzenie pliku usługi
 sudo nano /etc/systemd/system/voicebot.service
-Wpisz:
+```
 
-ini
+Wpisz:
+```ini
 [Unit]
 Description=Discord Voice Channel Bot
 After=network.target
@@ -200,7 +215,9 @@ RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
-bash
+```
+
+```bash
 # Aktywacja usługi
 sudo systemctl daemon-reload
 sudo systemctl enable voicebot
@@ -211,8 +228,10 @@ sudo systemctl status voicebot
 
 # Logi
 sudo journalctl -u voicebot -f
-Metoda 3: Tmux
-bash
+```
+
+### Metoda 3: Tmux
+```bash
 # Instalacja tmux
 sudo apt install -y tmux
 
@@ -225,13 +244,20 @@ Ctrl+B, następnie D
 
 # Powrót
 tmux attach -t voicebot
-🐳 Docker
-Instalacja Dockera
-bash
+```
+
+---
+
+## 🐳 Docker
+
+### Instalacja Dockera
+```bash
 sudo apt install -y docker.io docker-compose
-Tworzenie Dockerfile
-bash
-cat > Dockerfile << EOF
+```
+
+### Tworzenie Dockerfile
+```bash
+cat > Dockerfile << 'EOF'
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -243,8 +269,10 @@ COPY channels.json .
 
 CMD ["python", "bot.py"]
 EOF
-Budowanie i uruchomienie
-bash
+```
+
+### Budowanie i uruchomienie
+```bash
 # Budowanie obrazu
 docker build -t voicebot .
 
@@ -259,9 +287,11 @@ docker stop voicebot
 
 # Usunięcie kontenera
 docker rm voicebot
-Docker Compose
-bash
-cat > docker-compose.yml << EOF
+```
+
+### Docker Compose
+```bash
+cat > docker-compose.yml << 'EOF'
 version: '3'
 
 services:
@@ -272,7 +302,9 @@ services:
     volumes:
       - ./channels.json:/app/channels.json
 EOF
-bash
+```
+
+```bash
 # Uruchomienie
 docker-compose up -d
 
@@ -281,8 +313,13 @@ docker-compose logs -f
 
 # Zatrzymanie
 docker-compose down
-📁 Struktura plików
-text
+```
+
+---
+
+## 📁 Struktura plików
+
+```
 Discord-Voice-Channel-Creator/
 ├── bot.py              # Główny kod bota
 ├── channels.json       # Dane właścicieli kanałów (tworzony automatycznie)
@@ -291,110 +328,121 @@ Discord-Voice-Channel-Creator/
 ├── Dockerfile         # Dla Dockera (opcjonalny)
 ├── docker-compose.yml # Dla Docker Compose (opcjonalny)
 └── requirements.txt   # Zależności (opcjonalny)
-🎯 Jak to działa
-Użytkownik wchodzi na kanał trigger
+```
 
-Bot tworzy nowy kanał głosowy z nazwą użytkownika
+---
 
-Użytkownik jest przenoszony do swojego nowego kanału
+## 🎯 Jak to działa
 
-Pojawia się panel zarządzania z embedem i sterowaniem
+1. **Użytkownik wchodzi** na kanał trigger
+2. **Bot tworzy** nowy kanał głosowy z nazwą użytkownika
+3. **Użytkownik jest przenoszony** do swojego nowego kanału
+4. **Pojawia się panel zarządzania** z embedem i sterowaniem
+5. **Użytkownik może dostosować** swój kanał za pomocą interaktywnego menu
+6. **Gdy kanał jest pusty**, zostaje automatycznie usunięty po 15 sekundach
 
-Użytkownik może dostosować swój kanał za pomocą interaktywnego menu
+---
 
-Gdy kanał jest pusty, zostaje automatycznie usunięty po 15 sekundach
+## 🔐 Bezpieczeństwo
 
-🔐 Bezpieczeństwo
-Tylko właściciel kanału może używać panelu zarządzania
+- Tylko właściciel kanału może używać panelu zarządzania
+- Stary właściciel traci wszystkie uprawnienia po przekazaniu właściciela
+- Uprawnienia są automatycznie usuwane podczas usuwania kanału
 
-Stary właściciel traci wszystkie uprawnienia po przekazaniu właściciela
+---
 
-Uprawnienia są automatycznie usuwane podczas usuwania kanału
+## 📝 Konfiguracja
 
-📝 Konfiguracja
 Bot używa trzech głównych zmiennych konfiguracyjnych:
 
-python
+```python
 TOKEN = "twój_token_bota"
 GUILD_ID = 123456789012345678
 TRIGGER_CHANNEL_ID = 123456789012345678
-Jak znaleźć ID serwera i kanału?
-Włącz Tryb dewelopera w Discord (Ustawienia → Zaawansowane → Tryb dewelopera)
+```
 
-Kliknij prawym przyciskiem na serwer → Kopiuj ID
+### Jak znaleźć ID serwera i kanału?
+1. Włącz **Tryb dewelopera** w Discord (Ustawienia → Zaawansowane → Tryb dewelopera)
+2. Kliknij prawym przyciskiem na serwer → **Kopiuj ID**
+3. Kliknij prawym przyciskiem na kanał → **Kopiuj ID**
 
-Kliknij prawym przyciskiem na kanał → Kopiuj ID
+---
 
-🛠️ Szczegóły techniczne
-Zbudowany z użyciem biblioteki discord.py
+## 🛠️ Szczegóły techniczne
 
-Wykorzystuje komponenty UI Discorda (Przyciski, Menu wyboru, Modale)
+- Zbudowany z użyciem biblioteki [discord.py](https://github.com/Rapptz/discord.py)
+- Wykorzystuje komponenty UI Discorda (Przyciski, Menu wyboru, Modale)
+- Trwałe widoki do przywracania paneli
+- Przechowywanie danych w formacie JSON (nie wymaga bazy danych)
+- System czyszczenia w pętli (interwał 15 sekund)
+- Tworzenie kanałów oparte na zdarzeniach
 
-Trwałe widoki do przywracania paneli
+---
 
-Przechowywanie danych w formacie JSON (nie wymaga bazy danych)
+## 🐛 Rozwiązywanie problemów
 
-System czyszczenia w pętli (interwał 15 sekund)
-
-Tworzenie kanałów oparte na zdarzeniach
-
-🐛 Rozwiązywanie problemów
-Problem: ModuleNotFoundError: No module named 'discord'
-bash
+### Problem: `ModuleNotFoundError: No module named 'discord'`
+```bash
 pip3 install discord.py
 # lub jeśli używasz venv:
 source venv/bin/activate
 pip install discord.py
-Problem: Brak uprawnień
-bash
+```
+
+### Problem: Brak uprawnień
+```bash
 # Dodaj uprawnienia do pliku
 chmod +x bot.py
 
 # Uruchom jako root (jeśli konieczne)
 sudo python3 bot.py
-Problem: Bot nie łączy się z Discord
-Sprawdź czy token jest poprawny
+```
 
-Sprawdź czy intenty są włączone w panelu dewelopera
+### Problem: Bot nie łączy się z Discord
+- Sprawdź czy token jest poprawny
+- Sprawdź czy intenty są włączone w panelu dewelopera
+- Sprawdź połączenie internetowe
 
-Sprawdź połączenie internetowe
+### Problem: Bot nie tworzy kanałów
+- Sprawdź czy bot ma uprawnienia do zarządzania kanałami
+- Sprawdź czy kanał trigger istnieje
+- Sprawdź logi bota
 
-Problem: Bot nie tworzy kanałów
-Sprawdź czy bot ma uprawnienia do zarządzania kanałami
+### Problem: Błąd 404 podczas usuwania kanału
+- Bot najpierw wysyła odpowiedź, potem usuwa kanał
+- Jeśli błąd występuje, sprawdź czy kanał został już usunięty
 
-Sprawdź czy kanał trigger istnieje
+---
 
-Sprawdź logi bota
+## 🤝 Współpraca
 
-Problem: Błąd 404 podczas usuwania kanału
-Bot najpierw wysyła odpowiedź, potem usuwa kanał
+Zapraszam do współpracy! Jeśli masz pomysł na ulepszenie, zgłoś go przez [Issue](https://github.com/rAmfu/Discord-Voice-Channel-Creator/issues) lub wyślij [Pull Request](https://github.com/rAmfu/Discord-Voice-Channel-Creator/pulls).
 
-Jeśli błąd występuje, sprawdź czy kanał został już usunięty
+1. Forkuj projekt
+2. Utwórz swoją gałąź (`git checkout -b feature/AmazingFeature`)
+3. Zatwierdź zmiany (`git commit -m 'Add some AmazingFeature'`)
+4. Wypchnij gałąź (`git push origin feature/AmazingFeature`)
+5. Otwórz Pull Request
 
-🤝 Współpraca
-Zapraszam do współpracy! Jeśli masz pomysł na ulepszenie, zgłoś go przez Issue lub wyślij Pull Request.
+---
 
-Forkuj projekt
+## 📄 Licencja
 
-Utwórz swoją gałąź (git checkout -b feature/AmazingFeature)
+Ten projekt jest licencjonowany na warunkach licencji MIT - zobacz plik [LICENSE](LICENSE) dla szczegółów.
 
-Zatwierdź zmiany (git commit -m 'Add some AmazingFeature')
+---
 
-Wypchnij gałąź (git push origin feature/AmazingFeature)
+## 💬 Wsparcie
 
-Otwórz Pull Request
+W przypadku pytań, problemów lub sugestii, otwórz [Issue](https://github.com/rAmfu/Discord-Voice-Channel-Creator/issues) na GitHubie.
 
-📄 Licencja
-Ten projekt jest licencjonowany na warunkach licencji MIT - zobacz plik LICENSE dla szczegółów.
+---
 
-💬 Wsparcie
-W przypadku pytań, problemów lub sugestii, otwórz Issue na GitHubie.
+## 🌟 Autor
 
-🌟 Autor
-rAmfu
+**rAmfu**
+- GitHub: [@rAmfu](https://github.com/rAmfu)
 
-GitHub: @rAmfu
+---
 
-Stworzone z ❤️ dla społeczności Discord
-
-text
+**Stworzone z ❤️ dla społeczności Discord**
