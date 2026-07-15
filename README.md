@@ -94,8 +94,8 @@ pip install discord.py
    - Ustaw swoje zmienne:
    ```python
    TOKEN = "twój_token_bota"
-   GUILD_ID = 123456789012345678  # ID twojego serwera
-   TRIGGER_CHANNEL_ID = 123456789012345678  # ID kanału trigger
+   GUILD_ID = 123456789012345678  - ID twojego serwera
+   TRIGGER_CHANNEL_ID = 123456789012345678  - ID kanału trigger (który wykrywa bot)
    ```
 
 5. **Uruchom bota:**
