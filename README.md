@@ -24,7 +24,7 @@ Bot Discord do automatycznego tworzenia i zarządzania tymczasowymi kanałami g�
 
 - 🔄 **Odświeżanie** - Przycisk do ręcznej aktualizacji panelu
 
----
+
 
 ## 📋 Wymagania
 
@@ -34,7 +34,7 @@ Bot Discord do automatycznego tworzenia i zarządzania tymczasowymi kanałami g�
 
 - Serwer Discord z kanałem trigger
 
----
+
 
 ## 🚀 Instalacja
 
@@ -360,11 +360,6 @@ MIT License - dowolne wykorzystanie
   
 
 Twoja Nazwa - [GitHub](https://github.com/twoja-nazwa)
-
-  
-
-----------
-
   
 
 ## ⭐ Podziękowania
