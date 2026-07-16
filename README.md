@@ -231,9 +231,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=bot-kick
-WorkingDirectory=/home/bot-kick/Discord-Voice-Channel-Creator
-ExecStart=/home/bot-kick/Discord-Voice-Channel-Creator/venv/bin/python /home/bot-kick/Discord-Voice-Channel-Creator/bot.py
+User=discord
+WorkingDirectory=/home/discord/Discord-Voice-Channel-Creator
+ExecStart=/home/discord/Discord-Voice-Channel-Creator/venv/bin/python /home/discord/Discord-Voice-Channel-Creator/bot.py
 Restart=always
 RestartSec=10
 
@@ -279,7 +279,7 @@ nano start.sh
 Wpisz:
 ```bash
 #!/bin/bash
-cd /home/bot-kick/Discord-Voice-Channel-Creator
+cd /home/discord/Discord-Voice-Channel-Creator
 source venv/bin/activate
 python bot.py
 ```
