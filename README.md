@@ -1,5 +1,5 @@
 # 🎤 Discord-Voice-Channel-Creator
-
+🌍 Language: **Polish** | [English](README_EN.md)
 Bot Discord do automatycznego tworzenia i zarządzania tymczasowymi kanałami głosowymi. Napisany w Node.js z wykorzystaniem discord.js v14.
 
 
