@@ -3,7 +3,6 @@
 
 Bot Discord do automatycznego tworzenia i zarządzania tymczasowymi kanałami głosowymi. Napisany w Node.js z wykorzystaniem discord.js v14.
 
----
 
 ## ✨ Funkcje
 
