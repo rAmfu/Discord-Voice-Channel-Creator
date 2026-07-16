@@ -1,5 +1,4 @@
-
-# 🎤 Temporary Voice Channels Bot
+# 🎤 Discord-Voice-Channel-Creator
 
 Bot Discord do automatycznego tworzenia i zarządzania tymczasowymi kanałami głosowymi. Napisany w Node.js z wykorzystaniem discord.js v14.
 
@@ -151,33 +150,11 @@ nodemon  src/bot.js
 
   
 
-| Zmienna | Opis | Przykład |
-|---------|------|
-| `BOT_TOKEN` | Token  bota  Discord | `MTIzNDU2Nzg5MDEyMzQ1Njc4OQ.G...` |
-
-  
-
-`GUILD_ID`
-
-  
-
-ID  serwera  Discord
-
-  
-
-`123456789012345678`
-
-  
-
-`TRIGGER_CHANNEL_ID`
-
-  
-
-ID  kanału  trigger
-
-  
-
-`123456789012345678`
+|Zmienna|Opis|Przykład|
+|--|--|--|
+|`BOT_TOKEN`|Token  bota  Discord|`MTIzNDU2Nzg5MDEyMzQ1Njc4OQ.G...`|
+|`GUILD_ID`|ID  serwera  Discord|`123456789012345678`|
+|`TRIGGER_CHANNEL_ID`|ID  kanału  trigger|`123456789012345678`|
 
   
 
@@ -190,136 +167,59 @@ ID  kanału  trigger
   
 
 1.  **Dołącz  do  kanału  trigger**  -  Bot  automatycznie  utworzy  dla  Ciebie  kanał
-
 2.  **Panel  zarządzania**  -  Po  utworzeniu  kanału  pojawi  się  embed  z  panelem
-
 3.  **Zarządzanie  kanałem**  -  Użyj  menu  wyboru  aby:
-
 -  Ustawić  limit  użytkowników
-
 -  Zmienić  status  na  publiczny/prywatny
-
 -  Zmienić  nazwę
-
 -  Zmienić  opis
-
 -  Przekazać  własność
-
 -  Dodać/Usunąć  dostęp
-
 -  Wyrzucić/Zablokować  użytkownika
-
 -  Usunąć  kanał
-
-  
-
-----------
-
-  
-
+- 
 ## 📸 Panel zarządzania
-
-  
-
-text
-
-  
-
+```
 🎤  Panel  twojego  kanału
-
 👑  Właściciel:  @Użytkownik
-
 🔊  Nazwa  kanału:  🎤  Nazwa
-
 👥  Użytkownicy  na  kanale:  •  @User1  •  @User2
-
 👤  Użytkownicy  z  dostępem:  🔒  Tylko  właściciel  ma  dostęp
-
 ℹ️  Informacje:  •  Limit:  5  •  Status:  🔒  Prywatny
-
 ⚙️  Zarządzanie:  Użyj  menu  poniżej  aby  zarządzać  kanałem.
-
-  
-
-----------
-
-  
+```
 
 ## 🛠️ Rozwiązywanie problemów
 
-  
-
 ### Bot nie odpowiada
 
-  
-
 -  Sprawdź  czy  token  w  `.env`  jest  poprawny
-
 -  Sprawdź  czy  bot  ma  odpowiednie  uprawnienia
-
 -  Sprawdź  logi  w  konsoli
-
-  
-
 ### Kanał nie tworzy się
 
-  
-
 -  Sprawdź  czy  `TRIGGER_CHANNEL_ID`  jest  poprawny
-
 -  Sprawdź  czy  kanał  trigger  ma  ustawioną  kategorię (parent)
-
 -  Sprawdź  czy  bot  ma  uprawnienie  `Manage Channels`
-
-  
 
 ### Błąd "Aplikacja nie odpowiedziała na czas"
 
-  
-
 -  Bot  ma  wbudowane  `deferReply()` dla wolniejszych operacji
-
 - Sprawdź połączenie internetowe
-
 - Restart bota
-
-  
-
-----------
-
-  
 
 ## 📝 Licencja
 
-  
-
 MIT License - dowolne wykorzystanie
-
-  
-
-----------
-
-  
 
 ## 👨‍💻 Autor
 
-  
-
-Twoja Nazwa - [GitHub](https://github.com/twoja-nazwa)
+Twoja Nazwa - [rAmfu](https://github.com/rAmfu)
   
 
 ## ⭐ Podziękowania
 
-  
-
 - [discord.js](https://discord.js.org/) - biblioteka Discord
-
 - Wszystkim contributorom
-
-  
-
-----------
-
-  
 
 **UWAGA:** Bot wymaga Node.js v16.9.0 lub nowszego!
