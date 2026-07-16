@@ -1,11 +1,11 @@
 # 🎤 Discord Voice Channel Creator
 
-🌍 Language: **English** | [Polski](README.md) 🔄 Version: **Node-js** | [Python](https://github.com/rAmfu/Discord-Voice-Channel-Creator/README_EN.md)
+🌍 Language: **English** | [Polski](README.md) 🔄 Version: **Node-js** | [Python](https://github.com/rAmfu/Discord-Voice-Channel-Creator/tree/python/README_EN.md)
 
   A Discord bot for automatic creation and management of temporary voice channels. Built with Node.js and discord.js v14.
 
   
-  
+  https://github.com/rAmfu/Discord-Voice-Channel-Creator/tree/python
   
 
 ## ✨ Features
