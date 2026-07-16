@@ -42,7 +42,7 @@ cd  temporary-voice-bot
   
 
 ```
-npm  install  discord.js  dotenv
+npm  install
 ```
 
 ### 3. Stwórz plik `.env` w głównym katalogu
