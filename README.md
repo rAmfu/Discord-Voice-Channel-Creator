@@ -151,27 +151,9 @@ nodemon  src/bot.js
 
   
 
-Zmienna
-
-  
-
-Opis
-
-  
-
-Przykład
-
-  
-
-`BOT_TOKEN`
-
-  
-
-Token  bota  Discord
-
-  
-
-`MTIzNDU2Nzg5MDEyMzQ1Njc4OQ.G...`
+| Zmienna | Opis | Przykład |
+|---------|------|
+| `BOT_TOKEN` | Token  bota  Discord | `MTIzNDU2Nzg5MDEyMzQ1Njc4OQ.G...` |
 
   
 
