@@ -177,7 +177,7 @@ nodemon  src/bot.js
 -  Dodać/Usunąć  dostęp
 -  Wyrzucić/Zablokować  użytkownika
 -  Usunąć  kanał
-- 
+
 ## 📸 Panel zarządzania
 ```
 🎤  Panel  twojego  kanału
