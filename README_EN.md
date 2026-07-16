@@ -1,505 +1,302 @@
-# 🎤 Discord Voice Channel Creator
+# 🎤 Discord-Voice-Channel-Creator
 
-🌍 Language: **English** | [Polski](README.md)
+  A Discord bot for automatic creation and management of temporary voice channels. Built with Node.js and discord.js v14.
 
-A Discord bot that automatically creates and manages temporary voice channels with a full management panel.
-
-[![Status](https://img.shields.io/badge/status-active-success)](https://github.com/rAmfu/Discord-Voice-Channel-Creator)
-[![Python](https://img.shields.io/badge/python-3.8+-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Discord.py](https://img.shields.io/badge/discord.py-2.0+-blue)](https://github.com/Rapptz/discord.py)
-
----
-
-## 📋 Table of Contents
-- [✨ Features](#-features)
-- [🚀 Quick Start](#-quick-start)
-- [📦 Debian 12 Installation](#-debian-12-installation)
-- [🔧 Running in the Background](#-running-in-the-background)
-- [🐳 Docker](#-docker)
-- [📁 File Structure](#-file-structure)
-- [🎯 How It Works](#-how-it-works)
-- [🔐 Security](#-security)
-- [📝 Configuration](#-configuration)
-- [🛠️ Technical Details](#️-technical-details)
-- [🐛 Troubleshooting](#-troubleshooting)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-- [💬 Support](#-support)
-
----
+  
+  
+  
 
 ## ✨ Features
 
-### 🚀 Automatic Channel Creation
-- When a user joins the **trigger channel**, the bot automatically creates a new private voice channel for them
-- Each user gets their own personalized channel in the format: `🎤 {username}`
-- Channels are created in the same category as the trigger channel
+  
 
-### ⚙️ Management Panel
-After creating a channel, an interactive panel with an embed appears in the channel. The channel owner can:
+- 🚀 **Auto-create channels** – When a user joins the trigger channel, the bot automatically creates a voice channel for them.
 
-| Function | Description |
-|----------|-------------|
-| **👥 User Limit** | Sets the maximum number of people in the channel (0-99) |
-| **🔒 Private / Public** | Toggles channel visibility |
-| **✏️ Rename** | Changes the channel name |
-| **📝 Change Description** | Adds/removes a channel description (displayed in the embed) |
-| **👑 Transfer Ownership** | Transfers channel control to another user |
-| **🚪 Kick User** | Kicks a person from the channel |
-| **🚫 Block User** | Blocks access to the channel |
-| **🔓 Unblock User** | Restores access for a blocked user |
-| **🗑️ Delete Channel** | Deletes the channel |
+- 👑 **Management panel** – Each channel owner receives an interactive embed panel.
+- 🔒 **Privacy management** – Switch between public and private channels.
+- 👥 **Access management** – Add or remove access for selected users.
+- ✏️ **Customization** – Change name, description, and user limit.
+- 👑 **Ownership transfer** – Transfer the channel to another user.
+- 🚫 **Moderation** – Kick and ban users.
+- 🗑️ **Auto-cleanup** – Automatically delete empty channels.
+- 🔄 **Refresh** – Button to manually update the panel.
 
-### 🧹 Automatic Cleanup
-- Empty channels are automatically deleted after 15 seconds
-- Prevents the accumulation of unused channels
+  
+  
+  
 
-### 🔄 Data Persistence
-- Channel owner data is saved in the `channels.json` file
-- Management panels are automatically restored after bot restart
+## 📋 Requirements
 
-### 🛡️ Duplicate Protection
-- Each user can only have one temporary channel
-- Prevents creating multiple channels for the same user
+  
 
----
+- Node.js v16.9.0 or higher
+- Discord bot with proper permissions
+- Discord server with a trigger channel
 
-## 🚀 Quick Start
+  
+  
+  
 
-### Requirements
-- Python 3.8 or newer
-- Discord bot token with appropriate permissions
-- Discord server with administrator permissions
+## 🚀 Installation
 
-### Installation
+  
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
-cd Discord-Voice-Channel-Creator
+### 1. Clone the repository
+
+```
+git  clone  https://github.com/your-username/temporary-voice-bot.git
+cd  temporary-voice-bot
 ```
 
-2. **Create and activate a virtual environment:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+  
 
-3. **Install dependencies:**
-```bash
-pip install discord.py
-```
-
-4. **Configure the bot:**
-   - Open the `bot.py` file
-   - Set your variables:
-   ```python
-   TOKEN = "your_bot_token"
-   GUILD_ID = 123456789012345678  # Your server ID
-   TRIGGER_CHANNEL_ID = 123456789012345678  # Trigger channel ID
-   ```
-
-5. **Run the bot:**
-```bash
-python bot.py
-```
-
-> **⚠️ IMPORTANT:** Always run the bot in a virtual environment! If you see `(venv)` before the username in the terminal, it means the environment is active.
-
-### Required Bot Permissions
-- `Manage Channels` - to create, edit, and delete channels
-- `Connect` - to join voice channels
-- `Move Members` - to move users between channels
-- `Manage Permissions` - to set channel permissions
-- `View Channels` - to see channels
-- `Send Messages` - to send the management panel
-- `Embed Links` - for displaying embeds
-- `Voice Activity` - to monitor voice state
-
-### Required Intents
-- `guilds` - server information
-- `members` - member details
-- `voice_states` - voice activity tracking
-- `message_content` - message handling
-
----
-
-## 📦 Debian 12 Installation
-
-### Step 1: System Update
-```bash
-sudo apt update
-sudo apt upgrade -y
-```
-
-### Step 2: Install Basic Tools
-```bash
-sudo apt install -y python3 python3-pip git python3-venv
-```
-
-### Step 3: Download the Bot
-```bash
-git clone https://github.com/rAmfu/Discord-Voice-Channel-Creator.git
-cd Discord-Voice-Channel-Creator
-```
-
-### Step 4: Create Virtual Environment
-```bash
-python3 -m venv venv
-```
-
-### Step 5: Activate Environment and Install Dependencies
-```bash
-source venv/bin/activate
-pip install discord.py
-```
-
-### Step 6: Configuration
-```bash
-nano bot.py
-```
-Enter your data:
-```python
-TOKEN = "your_bot_token"
-GUILD_ID = 123456789012345678
-TRIGGER_CHANNEL_ID = 123456789012345678
-```
-
-### Step 7: Run
-```bash
-python bot.py
-```
-
-### Important: How to Always Run the Bot in a Virtual Environment?
-
-**Method 1: One Line**
-```bash
-source venv/bin/activate && python bot.py
-```
-
-**Method 2: Two Lines**
-```bash
-source venv/bin/activate
-python bot.py
-```
-
-**Method 3: Direct Use of Python from venv**
-```bash
-./venv/bin/python bot.py
-```
-
-> **📌 Tip:** When the environment is active, you will see `(venv)` before the username in the terminal:
-> ```bash
-> (venv) user@server:~$
-> ```
-
----
-
-## 🔧 Running in the Background
-
-### Method 1: Screen (recommended)
-```bash
-# Install screen (if you don't have it)
-sudo apt install -y screen
-
-# Run the bot in a screen session with virtual environment
-screen -S voicebot
-source venv/bin/activate && python bot.py
-
-# Exit the session (bot continues running)
-Ctrl+A, then D
-
-# Return to the session
-screen -r voicebot
-
-# Stop the bot
-Ctrl+C
-```
-
-### Method 2: Systemd (service)
-```bash
-# Create service file
-sudo nano /etc/systemd/system/voicebot.service
-```
-
-Enter:
-```ini
-[Unit]
-Description=Discord Voice Channel Bot
-After=network.target
-
-[Service]
-Type=simple
-User=discord
-WorkingDirectory=/home/discord/Discord-Voice-Channel-Creator
-ExecStart=/home/discord/Discord-Voice-Channel-Creator/venv/bin/python /home/discord/Discord-Voice-Channel-Creator/bot.py
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
+### 2. Install dependencies
 
 ```bash
-# Activate the service
-sudo systemctl daemon-reload
-sudo systemctl enable voicebot
-sudo systemctl start voicebot
-
-# Service status
-sudo systemctl status voicebot
-
-# Logs
-sudo journalctl -u voicebot -f
+npm  install
 ```
 
-### Method 3: Tmux
-```bash
-# Install tmux
-sudo apt install -y tmux
+  
 
-# Run
-tmux new -s voicebot
-source venv/bin/activate && python bot.py
+### 3. Create a `.env` file in the root directory
 
-# Exit
-Ctrl+B, then D
-
-# Return
-tmux attach -t voicebot
+```
+BOT_TOKEN=your_bot_token
+GUILD_ID=your_server_id
+TRIGGER_CHANNEL_ID=your_trigger_channel_id
 ```
 
-### Method 4: Startup Script
-```bash
-# Create start.sh file
-nano start.sh
+  
+
+### 4. Folder structure
+
+```
+temporary-voice-bot/
+├── src/
+│ └── bot.js
+├── channels.json
+└── .env
 ```
 
-Enter:
-```bash
-#!/bin/bash
-cd /home/discord/Discord-Voice-Channel-Creator
-source venv/bin/activate
-python bot.py
+  
+  
+  
+
+## 🤖 Bot Configuration
+
+  
+
+### 1. Create a bot on the Discord Developer Portal
+
+- Go to [Discord Developer Portal](https://discord.com/developers/applications)
+- Click "New Application" and enter a name
+- Go to the "Bot" tab
+- Click "Add Bot" and confirm
+- Copy the **TOKEN** – needed for the `.env` file
+
+  
+
+### 2. Enable intents
+
+In the "Bot" tab, enable:
+- ✅ Presence Intent
+- ✅ Server Members Intent
+- ✅ Message Content Intent
+
+  
+
+### 3. Invite the bot to your server
+
+In the "OAuth2" → "URL Generator" tab:
+- Select "bot" and "applications.commands"
+- Select the following permissions:
+- Manage Channels
+- Move Members
+- Connect
+- Speak
+- View Channel
+- Manage Roles
+- Copy the generated URL and open it in your browser
+
+  
+
+### 4. Get server and channel IDs
+
+- Enable **Developer Mode** in Discord (Settings → Advanced)
+- Right-click your server → "Copy ID"
+- Right-click the trigger channel → "Copy ID"
+
+  
+  
+  
+
+## 🎯 Bot Permissions
+
+  
+
+The bot requires the following permissions:
+
+-  `Manage Channels` – create and delete channels
+-  `Move Members` – move users between channels
+-  `Connect` – join voice channels
+-  `Speak` – speak in voice channels
+-  `View Channel` – see channels
+-  `Manage Roles` – edit channel permissions
+
+  
+  
+  
+
+## 🚀 Running the Bot
+
+  
+
+```
+node  src/bot.js
 ```
 
-```bash
-# Add permissions
-chmod +x start.sh
+ 
 
-# Run
-./start.sh
+Or with nodemon (for development):
+
+```
+npm  install  -g  nodemon
+nodemon  src/bot.js
 ```
 
----
-
-## 🐳 Docker
-
-### Docker Installation
-```bash
-sudo apt install -y docker.io docker-compose
-```
-
-### Creating Dockerfile
-```bash
-cat > Dockerfile << 'EOF'
-FROM python:3.11-slim
-
-WORKDIR /app
-
-RUN pip install discord.py
-
-COPY bot.py .
-COPY channels.json .
-
-CMD ["python", "bot.py"]
-EOF
-```
-
-### Building and Running
-```bash
-# Build image
-docker build -t voicebot .
-
-# Run in background
-docker run -d --name voicebot --restart unless-stopped voicebot
-
-# Check logs
-docker logs -f voicebot
-
-# Stop
-docker stop voicebot
-
-# Remove container
-docker rm voicebot
-```
-
-### Docker Compose
-```bash
-cat > docker-compose.yml << 'EOF'
-version: '3'
-
-services:
-  voicebot:
-    build: .
-    container_name: voicebot
-    restart: unless-stopped
-    volumes:
-      - ./channels.json:/app/channels.json
-EOF
-```
-
-```bash
-# Run
-docker-compose up -d
-
-# Logs
-docker-compose logs -f
-
-# Stop
-docker-compose down
-```
-
----
+  
+  
+  
 
 ## 📁 File Structure
 
+  
+
 ```
-Discord-Voice-Channel-Creator/
-├── bot.py              # Main bot code
-├── channels.json       # Channel owner data (created automatically)
-├── LICENSE            # MIT License
-├── README.md          # This file
-├── venv/              # Virtual environment (created automatically)
-├── Dockerfile         # For Docker (optional)
-├── docker-compose.yml # For Docker Compose (optional)
-├── requirements.txt   # Dependencies (optional)
-└── start.sh           # Startup script (optional)
-```
-
----
-
-## 🎯 How It Works
-
-1. **User joins** the trigger channel
-2. **Bot creates** a new voice channel with the user's name
-3. **User is moved** to their new channel
-4. **Management panel appears** with embed and controls
-5. **User can customize** their channel using the interactive menu
-6. **When the channel is empty**, it is automatically deleted after 15 seconds
-
----
-
-## 🔐 Security
-
-- Only the channel owner can use the management panel
-- Old owner loses all permissions after ownership transfer
-- Permissions are automatically removed when deleting the channel
-
----
-
-## 📝 Configuration
-
-The bot uses three main configuration variables:
-
-```python
-TOKEN = "your_bot_token"
-GUILD_ID = 123456789012345678
-TRIGGER_CHANNEL_ID = 123456789012345678
+temporary-voice-bot/
+├── src/
+│ └── bot.js # Main bot file
+├── channels.json # Channel owner data (auto-generated)
+├── .env # Environment variables
+├── package.json # Dependencies
+└── README.md # This documentation
 ```
 
-### How to Find Server and Channel IDs?
-1. Enable **Developer Mode** in Discord (Settings → Advanced → Developer Mode)
-2. Right-click on the server → **Copy ID**
-3. Right-click on the channel → **Copy ID**
+  
+  
+  
 
----
+## 🔧 Environment Variables
 
-## 🛠️ Technical Details
+  
 
-- Built using the [discord.py](https://github.com/Rapptz/discord.py) library
-- Uses Discord UI Components (Buttons, Select Menus, Modals)
-- Persistent views for panel restoration
-- JSON data storage (no database required)
-- Loop-based cleanup system (15-second interval)
-- Event-based channel creation
+| Variable | Description | Example |
+|--|--|--|
+| `BOT_TOKEN` | Discord bot token | `MTIzNDU2Nzg5MDEyMzQ1Njc4OQ.G...` |
+| `GUILD_ID` | Discord server ID | `123456789012345678` |
+| `TRIGGER_CHANNEL_ID` | Trigger channel ID | `123456789012345678` |
 
----
+  
+  
+  
 
-## 🐛 Troubleshooting
+## 🎮 How to Use
 
-### Problem: `ModuleNotFoundError: No module named 'discord'`
-```bash
-# Check if the environment is active
-source venv/bin/activate
+  
 
-# Install discord.py
-pip install discord.py
+1.  **Join the trigger channel** – The bot will automatically create a channel for you.
+2.  **Management panel** – After creation, an embed panel appears.
+3.  **Manage your channel** – Use the dropdown menu to:
+- Set user limit
+- Toggle public/private
+- Change name
+- Change description
+- Transfer ownership
+- Add/Remove access
+- Kick/Ban users
+- Delete the channel
 
-# Check installation
-pip list | grep discord
+  
+  
+  
+
+## 📸 Management Panel Example
+
+  
+
+```
+🎤 Your Channel Panel
+👑 Owner: @User
+🔊 Channel name: 🎤 Name
+👥 Users in channel: • @User1 • @User2
+👤 Users with access: 🔒 Only the owner has access
+ℹ️ Info: • Limit: 5 • Status: 🔒 Private
+⚙️ Management: Use the menu below to manage the channel.
 ```
 
-### Problem: Bot doesn't connect to Discord
-- Check if the token is correct
-- Check if intents are enabled in the developer panel
-- Check internet connection
-- Check if the virtual environment is active
+  
+  
+  
 
-### Problem: Bot doesn't create channels
-- Check if the bot has channel management permissions
-- Check if the trigger channel exists
-- Check bot logs
+## 🛠️ Troubleshooting
 
-### Problem: Error 404 when deleting a channel
-- Bot first sends a response, then deletes the channel
-- If the error occurs, check if the channel has already been deleted
+  
 
-### Problem: Virtual environment doesn't work
-```bash
-# Check if venv is installed
-python3 -m venv --help
+### Bot does not respond
 
-# If not, install
-sudo apt install python3-venv
+- Check if the token in `.env` is correct
+- Ensure the bot has the proper permissions
+- Check the console logs
 
-# Create a new environment
-rm -rf venv
-python3 -m venv venv
-```
+  
 
----
+### Channel is not created
 
-## 🤝 Contributing
+- Verify that `TRIGGER_CHANNEL_ID` is correct
+- Ensure the trigger channel has a category (parent)
+- Check that the bot has `Manage Channels` permission
 
-Contributions are welcome! If you have an idea for improvement, report it via [Issue](https://github.com/rAmfu/Discord-Voice-Channel-Creator/issues) or submit a [Pull Request](https://github.com/rAmfu/Discord-Voice-Channel-Creator/pulls).
+  
 
-1. Fork the project
-2. Create your branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Error: "Application did not respond"
 
----
+- The bot uses `deferReply()` for slower operations
+- Check your internet connection
+- Restart the bot
 
-## 📄 License
+  
+  
+  
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📝 License
 
----
+  
 
-## 💬 Support
+MIT License – free to use
 
-For questions, problems, or suggestions, open an [Issue](https://github.com/rAmfu/Discord-Voice-Channel-Creator/issues) on GitHub.
+  
+  
+  
 
----
+## 👨‍💻 Author
 
-## 🌟 Author
+  
 
-**rAmfu**
-- GitHub: [@rAmfu](https://github.com/rAmfu)
+rAmfu – [GitHub](https://github.com/rAmfu)
+rAmfu - [Portfolio](https://ramfu.ovh)
 
----
+  
+  
+  
 
-**Created with ❤️ for the Discord community**
+## ⭐ Acknowledgments
+
+  
+- [discord.js](https://discord.js.org/) – Discord library
+- All contributors
+
+  
+  
+  
+
+**NOTE:** Bot requires Node.js v16.9.0 or higher!
