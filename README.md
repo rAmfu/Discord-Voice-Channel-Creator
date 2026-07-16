@@ -1,9 +1,6 @@
 # 🎤 Discord Voice Channel Creator
 
-<p align="center">
-  <a href="#-polski">🇵🇱 Polski</a> •
-  <a href="#-english">🇬🇧 English</a>
-</p>
+🌍 Language: [English](README_EN.md) | **Polski**
 
 Bot Discord, który automatycznie tworzy i zarządza tymczasowymi kanałami głosowymi z pełnym panelem zarządzania.
 
